@@ -1,0 +1,101 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.admin-icon-box {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+
+.admin-icon {
+  width: 16px;
+  height: auto;
+}
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+.drink-btn {
+  border: none;
+  background: rgb(248, 248, 230);
+  height: 50px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.food-btn {
+  border: none;
+  background: rgb(255, 255, 219);
+  height: 50px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.main-sec {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.card {
+  border-radius: 20px;
+  height: 400px;
+  width: 300px;
+  background-color: rgb(255, 255, 241);
+  margin-top: 20px;
+}
+
+.card-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.drink-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.drink-price {
+  display: flex;
+}
+
+.drink-price div {
+  margin-left: 10px;
+}
+
+.food-box {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.food-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.food-card {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-top: 20px;
+  background: url("./cinamon.jpg");
+  background-size: 250px;
+}
+
+.food-card-info {
+  font-size: 18px;
+  margin-top: 10px;
+}
