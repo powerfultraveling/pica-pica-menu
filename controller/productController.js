@@ -1,13 +1,13 @@
-const db = require("..models");
+const db = require("../models");
 const Product = db.Product;
 const Category = db.Category;
 
 const productController = {
   index: (req, res) => {
     Product.findAll()
-      .then((res) => {
+      .then((data) => {
         res.render("./homepage/homepage", {
-          res: res,
+          data: data,
         });
       })
       .catch((err) => {
@@ -16,3 +16,5 @@ const productController = {
       });
   },
 };
+
+module.exports = productController;

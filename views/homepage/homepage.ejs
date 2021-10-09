@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/homepage.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
     <title>Document</title>
   </head>
   <body>
@@ -55,29 +61,216 @@
           </div>
         </div>
       </section>
-      <section class="main-sec" id="food">
+      <section class="main-sec" id="dessert">
         <div class="food-box">
-          <h3 class="food-title">甜點 dessert</h3>
-          <div class="food-card-box">
-            <div class="food-card"></div>
-            <div class="food-card-info">
-              <span>肉桂捲</span>
-              <span>$90</span>
+          <h2>甜點</h2>
+          <div
+            id="carouselExampleControls"
+            class="carousel slide look-custom"
+            data-interval="false"
+            data-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <% data.forEach((item)=>{ %>
+                <% if(item.englishName === "caramel cinamon roll") {%>
+                  <div class="carousel-item active">
+                    <div class="food-card-box">
+                      <div class="food-card"></div>
+                      <div class="food-card-info">
+                        <span><%= item.chineseName %> </span>
+                        <span>$<%= item.price %> </span>
+                      </div>
+                    </div>
+                  </div>
+                <% } %>
+              <% }) %> 
+              <% data.forEach((item)=>{ %> <% if(item.categoryid === 5 &&
+              item.englishName !== "caramel cinamon roll") {%>
+              <div class="carousel-item">
+                <div class="food-card-box">
+                  <div class="food-card"></div>
+                  <div class="food-card-info">
+                    <span><%= item.chineseName%></span>
+                    <span>$<%= item.icePrice%></span>
+                  </div>
+                </div>
+              </div>
+              <% } %> <% })%>
             </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
-          <div class="food-card"></div>
-        </div>
-        <div class="food-box">
-          <h3 class="food-title">沙拉 salad</h3>
-          <div class="food-card"></div>
-          <div class="food-card"></div>
-        </div>
-        <div class="food-box">
-          <h3 class="food-title">鹹食 dishes</h3>
-          <div class="food-card"></div>
-          <div class="food-card"></div>
         </div>
       </section>
+      <section class="main-sec" id="dessert">
+        <div class="food-box">
+          <h2>沙拉</h2>
+          <div
+            id="carouselExampleControls"
+            class="carousel slide look-custom"
+            data-interval="false"
+            data-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="food-card-box">
+                  <div class="food-card"></div>
+                  <div class="food-card-info">
+                    <span>肉桂捲</span>
+                    <span>$90</span>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="food-card-box">
+                  <div class="food-card"></div>
+                  <div class="food-card-info">
+                    <span>哈囉</span>
+                    <span>$90</span>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="food-card-box">
+                  <div class="food-card"></div>
+                  <div class="food-card-info">
+                    <span>沒錯</span>
+                    <span>$90</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="main-sec" id="dessert">
+        <div class="food-box">
+          <h2>鹹食</h2>
+          <div
+            id="carouselExampleControls"
+            class="carousel slide look-custom"
+            data-interval="false"
+            data-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="food-card-box">
+                  <div class="food-card"></div>
+                  <div class="food-card-info">
+                    <span>肉桂捲</span>
+                    <span>$90</span>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="food-card-box">
+                  <div class="food-card"></div>
+                  <div class="food-card-info">
+                    <span>哈囉</span>
+                    <span>$90</span>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="food-card-box">
+                  <div class="food-card"></div>
+                  <div class="food-card-info">
+                    <span>沒錯</span>
+                    <span>$90</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <%- include("./template/footer") %>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script></script>
   </body>
 </html>
