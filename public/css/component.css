@@ -1,5 +1,10 @@
 .footer {
   width: 100%;
-  height: 150px;
-  background-color: rgb(251, 253, 235);
+  height: 400px;
+  background-color: #f7dbc7;
+}
+
+.ig-icon {
+  width: 24px;
+  height: auto;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/homepage2.css" />
+    <link rel="stylesheet" href="./css/homepage.css" />
     <link rel="stylesheet" href="./css/component.css">
     <title>Document</title>
   </head>
@@ -47,7 +47,7 @@
               </div>
             </div>
             <% data.forEach((item)=>{ %>
-              <% if(item.categoryid === 1){ %> 
+              <% if(item.categoryid === 1 && item.id !== editId){ %> 
                 <div class="drink-item">
                   <div class="item-box1">
                     <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
@@ -62,7 +62,13 @@
                     <div><%= item.hotPrice %> </div>
                   </div>
                 </div>
-              <% } %>   
+              <% } else {%> 
+                <div class="drink-item">
+                  <form>
+                    <input type="text" placeholder=""><input type="text"><input type="text"><input type="text"><input type="text"><input type="text">
+                  </form>
+                </div> 
+              <% } %> 
             <% })%>
           </div>
         </div>
@@ -195,6 +201,5 @@
       </section>  
     </div>
     <%- include("../template/footer") %>
-    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>  
   </body>
 </html>

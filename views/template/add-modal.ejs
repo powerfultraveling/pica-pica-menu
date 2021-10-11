@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/adminAdd.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div>
-      <div class="add-nav-box">
-        <div>
-          <a href="/">
-            <img class="back-icon" src="./img/back.png" />
-          </a>
-        </div>
+<div class="add-modal">
+    <div class="add-form-box">
+      <div class="model-cancel-box">
+        <a href="/" class="model-cancel-btn">取消</a>
       </div>
-      <form action="/adminAdd" method="POST">
+      <form clss="add-form" action="/add" method="POST">
         <div>
           <h2 class="add-title">新增餐點</h2>
         </div>
@@ -50,9 +37,8 @@
           </select>
         </div>
         <div>
-          <input class="submit-btn" type="submit" />
+          <input class="submit-btn" type="submit" value="新增"/>
         </div>
-      </form>
+      </form>   
     </div>
-  </body>
-</html>
+  </div>  
