@@ -68,7 +68,7 @@ npm init
 npx sequelize-cli db:migrate
 ```
 ### 6. 啟動專案
-回到專案跟目錄輸入以下指令，pica-pica-menu 就會跑在 http://localhost:3000 
+回到專案跟目錄輸入以下指令，pica-pica-menu 就會跑在 http://localhost:3000 啦!
 ```
 node index.js
 ```
