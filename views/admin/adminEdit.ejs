@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/homepage.css" />
-    <link rel="stylesheet" href="./css/component.css">
+    <link rel="stylesheet" href="/css/homepage2.css" />
+    <link rel="stylesheet" href="/css/component.css">
     <title>Document</title>
   </head>
   <body>
@@ -15,11 +15,11 @@
     <div class="container">
       <div class="admin-icon-box">
         <a href="/login"
-          ><img class="admin-icon" src="./img/admin.png"
+          ><img class="admin-icon" src="/img/admin.png"
         /></a>
       </div>
       <div>
-        <a><img class="logo" src="./img/pica.png" /></a>
+        <a><img class="logo" src="/img/pica.png" /></a>
       </div>
       <div class="buttons">
         <a href="#coffee"><button class="drink-btn">咖啡</button></a>
@@ -47,26 +47,28 @@
               </div>
             </div>
             <% data.forEach((item)=>{ %>
-              <% if(item.categoryid === 1 && item.id !== editId){ %> 
+              <% if(item.categoryid === 1 ){ %> 
+                <% if(item.id.toString() === editId) { %>
+                  <form class="drink-item">
+                    <div>
+                      <input type="text" placeholder=<%= item.chineseName %> >
+                      <input type="text" placeholder=<%= item.englishName %> >
+                    </div>
+                    <div class="drink-price">
+                      <input type="text" placeholder=<%= item.icePrice %> >
+                      <input type="text" placeholder=<%= item.hotPrice %> >
+                    </div>
+                  </form> 
+                <% } %>
                 <div class="drink-item">
-                  <div class="item-box1">
-                    <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
-                    <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
-                  </div>
-                  <div class="item-box2">
+                  <div>
                     <div><%= item.chineseName %> </div>
                     <div><%= item.englishName %> </div>
                   </div>
-                  <div class="drink-price item-box3">
+                  <div class="drink-price">
                     <div><%= item.icePrice %> </div>
                     <div><%= item.hotPrice %> </div>
                   </div>
-                </div>
-              <% } else {%> 
-                <div class="drink-item">
-                  <form>
-                    <input type="text" placeholder=""><input type="text"><input type="text"><input type="text"><input type="text"><input type="text">
-                  </form>
                 </div> 
               <% } %> 
             <% })%>
