@@ -5,7 +5,7 @@
 因為疫情的關係，以前打工的咖啡廳需要一份線上的菜單，讓客人可以進到店家後透過掃 QR Code 在自己的裝置上看菜單，而不需要用手接觸實體菜單。除此之外，過去每當品項有更動
 時，店家都需要重新製作一份菜單，為了解決者個問題，這個菜單專案還開發了後台管理功能，讓店家可以自由更動菜單內容。
 
-偏題一下，這家咖啡廳超棒，很適合讀書做自己的事，還沒去過得趕快去看看喔 -> [喜鵲咖啡](https://www.instagram.com/picachilcafe/0)
+偏題一下，這家咖啡廳超棒，很適合讀書做自己的事，還沒去過得趕快去看看喔 -> [喜鵲咖啡](https://www.facebook.com/picapicafe/)
 ### 使用的技術
 使用 Node.js 搭配 Express.js 以及 Sequelize 開發的 server 端線上菜單，並使用 heroku 部屬。
 
@@ -23,6 +23,7 @@
 * 權限設定，只有登入以管理員身分才能執行上述功能。
 
 ## UI 優化
+.........工程進行中
 
 ## schema
 
@@ -40,7 +41,7 @@
 * [Express](https://expressjs.com/zh-tw/)
 * [MySQL](https://www.mysql.com/)
 
-## 在你想要的地方安裝這個專案吧 !
+## 在本地(或是任何地方)安裝這個專案吧 !
 
 ###  1. 把這個 repo 抓下來
 ```
@@ -74,6 +75,7 @@ node index.js
 ```
 
 ## 開發者
+
 [蔡恂藝](https://github.com/powerfultraveling)
 
 
