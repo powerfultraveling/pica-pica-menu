@@ -12,12 +12,20 @@
     <% if(add_modal_open === true) { %> 
       <%- include ("../template/add-modal.ejs")%> 
     <% } %> 
+
     <div class="container">
-      <div class="admin-icon-box">
-        <a href="/login"
-          ><img class="admin-icon" src="./img/admin.png"
-        /></a>
-      </div>
+      <% if(user){ %>
+        <div class="admin-icon-box">
+          <a class="logout" href="/logout"
+            >登出</a>
+        </div>
+      <% } else {%>  
+        <div class="admin-icon-box">
+          <a href="/login"
+            ><img class="admin-icon" src="./img/admin.png"
+          /></a>
+        </div>
+      <% } %> 
       <div>
         <a><img class="logo" src="./img/pica.png" /></a>
       </div>
@@ -30,11 +38,13 @@
         <a href="#salad"><button class="food-btn">沙拉</button></a>
         <a href="#dishes"><button class="drink-btn">鹹食</button></a>
       </div>
-      <div class="admin-add-box">
-        <form action="/" method="POST">
-          <button name="addModalBtn" class="add-btn" value="open">+</button>
-        </form>
-      </div>
+      <% if(user) {%> 
+        <div class="admin-add-box">
+          <form action="/" method="POST">
+            <button name="addModalBtn" class="add-btn" value="open">+</button>
+          </form>
+        </div>
+      <% }  %> 
       <section class="main-sec">
         <div class="card-box" id="coffee">
           <h2 class="category-title">咖啡 coffee</h2>
@@ -49,10 +59,12 @@
             <% data.forEach((item)=>{ %>
               <% if(item.categoryid === 1){ %> 
                 <div class="drink-item">
-                  <div class="item-box1">
-                    <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
-                    <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
-                  </div>
+                  <% if(user){ %> 
+                    <div class="item-box1">
+                      <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                      <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                    </div>
+                  <% } %> 
                   <div class="item-box2">
                     <div><%= item.chineseName %> </div>
                     <div><%= item.englishName %> </div>

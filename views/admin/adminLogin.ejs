@@ -8,13 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <a href="/"><img class="back-icon" src="./img/back.png"></a>
+    <div class="login-box">
+        <div>
+            <img class="logo-pic" src="/img/pica.png">
+        </div>
+        <form action="/login" method="POST">
+            <div>
+                <input type="text" class="text-input" placeholder="帳號" name="username">
+            </div>
+            <div>
+                <input type="password" class="text-input" placeholder="密碼" name="password">
+            </div>
+            <div>
+                <input type="submit" class="login-btn" value="登入">
+            </div>
+        </form> 
     </div>
-    <form action="/login" methos="POST" class="login-form">
-        <input type="text" class="user-input" placeholder="帳號" name="username">
-        <input type="password" class="password-input" placeholder="密碼" name="password">
-        <input type="submit" class="submit-btn" value="交卷!">
-    </form> 
 </body>
 </html>

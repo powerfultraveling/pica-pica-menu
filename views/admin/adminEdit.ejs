@@ -12,6 +12,7 @@
     <% if(add_modal_open === true) { %> 
       <%- include ("../template/add-modal.ejs")%> 
     <% } %> 
+    <%- include("../template/edit-modal.ejs")  %> 
     <div class="container">
       <div class="admin-icon-box">
         <a href="/login"
@@ -48,18 +49,6 @@
             </div>
             <% data.forEach((item)=>{ %>
               <% if(item.categoryid === 1 ){ %> 
-                <% if(item.id.toString() === editId) { %>
-                  <form class="drink-item">
-                    <div>
-                      <input type="text" placeholder=<%= item.chineseName %> >
-                      <input type="text" placeholder=<%= item.englishName %> >
-                    </div>
-                    <div class="drink-price">
-                      <input type="text" placeholder=<%= item.icePrice %> >
-                      <input type="text" placeholder=<%= item.hotPrice %> >
-                    </div>
-                  </form> 
-                <% } %>
                 <div class="drink-item">
                   <div>
                     <div><%= item.chineseName %> </div>

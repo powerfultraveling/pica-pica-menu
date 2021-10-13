@@ -39,7 +39,7 @@ const productController = {
     const hotPrice = req.body.hotPrice;
     const description = req.body.description;
     const category= req.body.category;
-    const image = req.body.image;
+    const image = req.file.path;
 
     Product.create({
       chineseName: chineseName,
@@ -86,15 +86,52 @@ const productController = {
     })
   },
 
-  adminEdit: (req, res)=>{
+  productEdit: (req, res)=>{
     const id = req.params.id;
-    Product.findAll()
-    .then((data)=>{
+    Product.findOne({
+      where:{
+        id: id
+      }
+    })
+    .then((product)=>{
       res.render("./admin/adminEdit", {
-        data: data,
+        data: [],
         add_modal_open: false,
-        editId: id
+        product: product
       })
+    })
+  },
+
+  productEditHandler: (req, res)=>{
+    const id = req.params.id;
+    const chineseName = req.body.chineseName;
+    const englishName = req.body.englishName;
+    const icePrice = req.body.icePrice;
+    const hotPrice = req.body.hotPrice;
+    const description = req.body.description;
+    const category= req.body.category;
+    const image = req.body.image;
+
+    Product.update({
+      chineseName: chineseName,
+      englishName: englishName,
+      icePrice: icePrice,
+      hotPrice: hotPrice,
+      description: description,
+      categoryid: category,
+      image: image
+    },{
+      where:{
+        id: id
+      }
+    })
+    .then(()=>{
+      console.log("success!")
+      res.redirect("/");
+    })
+    .catch((err)=>{
+      console.log(err.toString())
+      res.redirect("/");
     })
   }
 };

@@ -3,7 +3,7 @@
       <div class="model-cancel-box">
         <a href="/" class="model-cancel-btn">取消</a>
       </div>
-      <form clss="add-form" action="/add" method="POST">
+      <form clss="add-form" action="/add" method="POST" enctype="multipart/form-data">
         <div>
           <h2 class="add-title">新增餐點</h2>
         </div>
@@ -20,10 +20,10 @@
           <input class="text-input" type="text" name="hotPrice" placeholder="熱價錢" />
         </div>
         <div>
-          <input class="text-input" type="text" name="image" placeholder="圖片URL" />
+          <input class="" type="file" name="image" />
         </div>
         <div>
-          <textarea class="text-input" name="description" placeholder="敘述"></textarea>
+          <textarea class="textarea-input" name="description" placeholder="敘述"></textarea>
         </div>
         <div>
           <select class="select" name="category">
