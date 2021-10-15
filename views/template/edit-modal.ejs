@@ -3,7 +3,7 @@
       <div class="model-cancel-box">
         <a href="/" class="model-cancel-btn">取消</a>
       </div>
-      <form clss="add-form" action="/edit/<%= product.id%> " method="POST">
+      <form class="add-form" action="/edit/<%= product.id%> " method="POST" enctype="multipart/form-data">
         <div>
           <h2 class="add-title">編輯餐點</h2>
         </div>
@@ -20,10 +20,14 @@
           <input class="text-input" type="text" name="hotPrice" placeholder="熱價錢" value=<%= product.hotPrice %> />
         </div>
         <div>
-          <input class="text-input" type="text" name="image" placeholder="圖片URL" value=<%= product.image %> />
+          <label class="label-image-input" for="image-upload">上傳照片</label>
+          <input class="image-input" type="file" name="image" id="image-upload"/>
         </div>
         <div>
-          <textarea class="text-input" name="description" placeholder="敘述" value=<%= product.description %> ></textarea>
+          <input class="old-image" type="text" name="oldImage" value=<%= product.image %> >
+        </div>
+        <div>
+          <textarea class="textarea-input" name="description" placeholder="敘述" value=<%= product.description %> ></textarea>
         </div>
         <div>
           <select class="select" name="category" value=<%= product.categoryid %> >

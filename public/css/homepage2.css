@@ -155,14 +155,6 @@
   align-items: center;
 }
 
-.carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
-}
-
-.carousel-control-next-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
-}
-
 /* admin related */
 .icon {
   width: 16px;
@@ -206,14 +198,27 @@
 
 .add-form-box {
   position: absolute;
-  height: 550px;
-  top: 10%;
+  height: 580px;
+  top: 90%;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 300px;
   text-align: center;
   padding-top: 10px;
   border-radius: 10px;
+  animation-name: modal;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  transition: 0.3s;
+}
+
+@keyframes modal {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-95%);
+  }
 }
 
 .model-cancel-box {
@@ -221,7 +226,11 @@
   width: 100%;
   display: flex;
   justify-content: left;
-  margin-bottom: 20px;
+}
+
+.model-cancel-btn {
+  color: rgb(10, 122, 255);
+  text-decoration: none;
 }
 
 .add-form {
@@ -231,7 +240,7 @@
   background: white;
   border-radius: 10px;
   width: 80%;
-  margin: 50px auto;
+  margin: 30px auto;
   padding: 30px;
 }
 
@@ -247,6 +256,29 @@
   margin-bottom: 20px;
 }
 
+.label-image-input {
+  background-color: rgb(10, 122, 255);
+  color: white;
+  font-weight: 400;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.image-input {
+  display: none;
+}
+
+.old-image {
+  display: none;
+}
+
 .select {
   height: 30px;
   width: 100px;
@@ -254,21 +286,25 @@
   border-radius: 10px;
 }
 
+.textarea-input {
+  width: 230px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
 .submit-btn {
   width: 80px;
   height: 30px;
   margin-top: 30px;
+  background-color: black;
+  color: white;
   padding: 4px;
   border: none;
   border-radius: 10px;
 }
 
-/* edit modal */
-.edit-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+.cl-finish {
+  background-color: rgb(230, 230, 230);
 }

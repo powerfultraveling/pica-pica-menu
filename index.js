@@ -43,7 +43,7 @@ app.get("/login", userController.loginPage);
 app.post("/login", userController.loginHandler);
 app.get("/logout", userController.logoutHandler);
 app.get("/edit/:id", productController.productEdit);
-app.post("/edit/:id", productController.productEditHandler)
+app.post("/edit/:id", upload.single('image'), productController.productEditHandler)
 app.get("/delete/:id", productController.productDeleteHandeler);
 app.post("/add", upload.single('image'), productController.productAddHandler);
 

@@ -1,6 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+
 * {
   padding: 0;
   margin: 0;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .test-wrapper {
@@ -50,20 +60,10 @@
   padding-bottom: 10px;
 }
 
-.drink-btn {
-  border: none;
-  border-radius: 10px;
-  background: rgb(248, 248, 230);
-  height: 80px;
-  width: 80px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
 .food-btn {
   border: none;
   border-radius: 10px;
-  background: rgb(255, 255, 219);
+  background: rgb(248, 248, 230);
   height: 80px;
   width: 80px;
   cursor: pointer;
@@ -76,13 +76,14 @@
 
 .category-title {
   font-size: 24px;
+  font-family: "Noto Sans TC", sans-serif;
 }
 
 .drink-card {
   border-radius: 20px;
   font-size: 20px;
-  height: 400px;
-  min-width: 300px;
+  min-height: 400px;
+  width: 350px;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin-top: 20px;
@@ -101,31 +102,37 @@
   margin-top: 40px;
 }
 
-/* .item-box1 {
-  width: 20%;
+.drink-item {
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
 }
 
+.item-box1 {
+  width: 20%;
+}
 .item-box2 {
   width: 50%;
 }
 
 .item-box3 {
-  width: 30%;
-} */
-
-.drink-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-  align-items: center;
+  width: 15%;
 }
 
-.drink-price {
-  display: flex;
+.item-box-customer1 {
+  width: 70%;
 }
 
-.drink-price div {
-  margin-left: 10px;
+.item-box-customer2 {
+  width: 15%;
+}
+
+.ice-price {
+  margin-right: 5px;
+}
+
+.englishName {
+  font-size: 16px;
 }
 
 .food-box {
@@ -148,7 +155,7 @@
   height: 250px;
   border-radius: 10px;
   margin-top: 20px;
-  background-color: rgb(201, 201, 48);
+  background-color: rgb(236, 236, 236);
   background-size: 250px;
 }
 
@@ -197,12 +204,11 @@
   text-decoration: none;
   color: rgb(102, 102, 102);
   cursor: pointer;
-  transition: 0.1s;
+  transition: 1s;
 }
 
 .add-btn:focus {
-  width: 40px;
-  height: 40px;
+  transform: rotate(360deg);
 }
 
 /* admin add modal*/
@@ -223,13 +229,26 @@
 .add-form-box {
   position: absolute;
   height: 580px;
-  top: 5%;
+  top: 90%;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 300px;
   text-align: center;
   padding-top: 10px;
   border-radius: 10px;
+  animation-name: modal;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  transition: 0.3s;
+}
+
+@keyframes modal {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 }
 
 .model-cancel-box {
@@ -237,7 +256,6 @@
   width: 100%;
   display: flex;
   justify-content: left;
-  margin-bottom: 20px;
 }
 
 .model-cancel-btn {
@@ -252,7 +270,7 @@
   background: white;
   border-radius: 10px;
   width: 80%;
-  margin: 50px auto;
+  margin: 30px auto;
   padding: 30px;
 }
 
@@ -268,6 +286,25 @@
   border-radius: 10px;
   margin-bottom: 20px;
   padding-left: 10px;
+}
+
+.label-image-input {
+  background-color: rgb(10, 122, 255);
+  color: white;
+  font-weight: 400;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.image-input {
+  display: none;
 }
 
 .text-input:focus {
@@ -289,7 +326,7 @@
 .select {
   height: 30px;
   width: 60px;
-  border: 1px solid black;
+  border: 1px solid rgb(167, 167, 167);
   border-radius: 10px;
   background-color: rgba(245, 244, 244, 0.6);
 }
@@ -316,23 +353,29 @@
   color: black;
 }
 
-/* scroll-bar */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 10px;
+@media (min-width: 700px) {
+  /* scroll-bar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(247, 229, 191);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(247, 229, 191);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.cl-finish {
+  background-color: rgb(230, 230, 230);
 }

@@ -9,9 +9,6 @@
     <title>Document</title>
   </head>
   <body>
-    <% if(add_modal_open === true) { %> 
-      <%- include ("../template/add-modal.ejs")%> 
-    <% } %> 
     <%- include("../template/edit-modal.ejs")  %> 
     <div class="container">
       <div class="admin-icon-box">
@@ -47,20 +44,6 @@
                 <div>熱</div>
               </div>
             </div>
-            <% data.forEach((item)=>{ %>
-              <% if(item.categoryid === 1 ){ %> 
-                <div class="drink-item">
-                  <div>
-                    <div><%= item.chineseName %> </div>
-                    <div><%= item.englishName %> </div>
-                  </div>
-                  <div class="drink-price">
-                    <div><%= item.icePrice %> </div>
-                    <div><%= item.hotPrice %> </div>
-                  </div>
-                </div> 
-              <% } %> 
-            <% })%>
           </div>
         </div>
         <div class="card-box" id="tea">
@@ -73,20 +56,6 @@
                 <div>熱</div>
               </div>
             </div>
-            <% data.forEach((item)=>{ %>
-              <% if(item.categoryid === 2)  {%> 
-                <div class="drink-item">
-                  <div>
-                    <div><%= item.chineseName %> </div>
-                    <div><%= item.englishName %> </div>
-                  </div>
-                  <div class="drink-price">
-                    <div><%= item.icePrice %> </div>
-                    <div><%= item.hotPrice %> </div>
-                  </div>
-                </div>  
-              <% } %> 
-            <% }) %>          
           </div>
         </div>
         <div class="card-box" id="chocolate">
@@ -99,20 +68,6 @@
                 <div>熱</div>
               </div>
             </div>
-            <% data.forEach((item)=>{ %>
-              <% if(item.categoryid === 3){ %> 
-                <div class="drink-item">
-                  <div>
-                    <div><%= item.chineseName %> </div>
-                    <div><%= item.englishName %> </div>
-                  </div>
-                  <div class="drink-price">
-                    <div><%= item.icePrice %> </div>
-                    <div><%= item.hotPrice %> </div>
-                  </div>
-                </div>
-              <% } %> 
-            <% }) %> 
           </div>
         </div>
         <div class="card-box" id="juice">
@@ -125,20 +80,6 @@
                 <div>熱</div>
               </div>
             </div>
-            <% data.forEach((item)=>{ %>
-              <% if(item.categoryid === 4) {%> 
-              <div class="drink-item">
-                <div>
-                  <div>美式黑咖啡</div>
-                  <div>Americano</div>
-                </div>
-                <div class="drink-price">
-                  <div>130</div>
-                  <div>130</div>
-                </div>
-              </div>
-              <% } %> 
-            <% }) %> 
           </div>
         </div>
       </section>
@@ -146,15 +87,11 @@
         <div class="food-box">
           <h2 class="category-title">甜點</h2>
           <div class="test-wrapper">
-            <% data.forEach((item)=>{ %> <% if(item.categoryid === 5 ) {%>
               <div class="food-card-box">
                 <div class="food-card"></div>
                 <div class="food-card-info">
-                  <span><%= item.chineseName%></span>
-                  <span>$<%= item.icePrice%></span>
                 </div>
               </div>
-            <% } %> <% })%>
           </div>
         </div>
       </section>
@@ -162,15 +99,11 @@
         <div class="food-box">
           <h2 class="category-title">沙拉和湯</h2>
           <div class="test-wrapper">
-            <% data.forEach((item)=>{ %> <% if(item.categoryid === 6 ) {%>
               <div class="food-card-box">
                 <div class="food-card"></div>
                 <div class="food-card-info">
-                  <span><%= item.chineseName%></span>
-                  <span>$<%= item.icePrice%></span>
                 </div>
               </div>
-            <% } %> <% })%>
           </div>
         </div>
       </section>
@@ -178,19 +111,21 @@
         <div class="food-box">
           <h2 class="category-title">鹹食</h2>
           <div class="test-wrapper">
-            <% data.forEach((item)=>{ %> <% if(item.categoryid === 7 ) {%>
               <div class="food-card-box">
                 <div class="food-card"></div>
                 <div class="food-card-info">
-                  <span><%= item.chineseName%></span>
-                  <span>$<%= item.icePrice%></span>
                 </div>
               </div>
-            <% } %> <% })%>
           </div>
         </div>
       </section>  
     </div>
-    <%- include("../template/footer") %>
+    <script>
+      document.querySelector(".image-input").addEventListener("change", ()=>{
+        const label = document.querySelector(".label-image-input");
+        label.classList.add("cl-finish");
+        label.textContent = "已上傳";
+      })
+    </script>  
   </body>
 </html>

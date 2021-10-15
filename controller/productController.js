@@ -39,7 +39,11 @@ const productController = {
     const hotPrice = req.body.hotPrice;
     const description = req.body.description;
     const category= req.body.category;
-    const image = req.file.path;
+    let image = "";
+
+    if(req.file === true){
+      image = req.file.path;
+    }
 
     Product.create({
       chineseName: chineseName,
@@ -95,8 +99,6 @@ const productController = {
     })
     .then((product)=>{
       res.render("./admin/adminEdit", {
-        data: [],
-        add_modal_open: false,
         product: product
       })
     })
@@ -110,7 +112,13 @@ const productController = {
     const hotPrice = req.body.hotPrice;
     const description = req.body.description;
     const category= req.body.category;
-    const image = req.body.image;
+    let image = "";
+
+    if(req.file === true){
+      image = req.file.path;
+    }else{
+      image = req.body.oldImage;
+    }
 
     Product.update({
       chineseName: chineseName,

@@ -30,13 +30,13 @@
         <a><img class="logo" src="./img/pica.png" /></a>
       </div>
       <div class="buttons">
-        <a href="#coffee"><button class="drink-btn">咖啡</button></a>
+        <a href="#coffee"><button class="food-btn">咖啡</button></a>
         <a href="#tea"><button class="food-btn">茶</button></a>
-        <a href="#chocolate"><button class="drink-btn">巧克力</button></a>
+        <a href="#chocolate"><button class="food-btn">巧克力</button></a>
         <a href="#juice"><button class="food-btn">果汁</button></a>
-        <a href="#dessert"><button class="drink-btn">甜點</button></a>
+        <a href="#dessert"><button class="food-btn">甜點</button></a>
         <a href="#salad"><button class="food-btn">沙拉</button></a>
-        <a href="#dishes"><button class="drink-btn">鹹食</button></a>
+        <a href="#dishes"><button class="food-btn">鹹食</button></a>
       </div>
       <% if(user) {%> 
         <div class="admin-add-box">
@@ -46,114 +46,195 @@
         </div>
       <% }  %> 
       <section class="main-sec">
-        <div class="card-box" id="coffee">
+        <div class="card-box" id="coffee" style="scroll-behavior: smooth;">
           <h2 class="category-title">咖啡 coffee</h2>
           <div class="drink-card">
-            <div class="drink-item">
-              <div></div>
-              <div class="drink-price">
-                <div>冰</div>
-                <div>熱</div>
+            <% if(user) { %>
+              <div class="drink-item">
+                <div class="item-box1"></div>
+                <div class="item-box2"></div>
+                <div class="item-box3">冰</div>
+                <div class="item-box3">熱</div>
               </div>
-            </div>
-            <% data.forEach((item)=>{ %>
-              <% if(item.categoryid === 1){ %> 
-                <div class="drink-item">
-                  <% if(user){ %> 
-                    <div class="item-box1">
-                      <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
-                      <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+              <% data.forEach((item)=>{ %>
+                <% if(item.categoryid === 1)  {%> 
+                  <div class="drink-item">
+                      <div class="item-box1">
+                        <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                        <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                      </div>
+                    <div class="item-box2">
+                      <div><%= item.chineseName %> </div>
+                      <div class="englishName"><%= item.englishName %> </div>
                     </div>
-                  <% } %> 
-                  <div class="item-box2">
-                    <div><%= item.chineseName %> </div>
-                    <div><%= item.englishName %> </div>
-                  </div>
-                  <div class="drink-price item-box3">
-                    <div><%= item.icePrice %> </div>
-                    <div><%= item.hotPrice %> </div>
-                  </div>
-                </div>
-              <% } %>   
-            <% })%>
+                    <div class="item-box3 ice-price"><%= item.icePrice %> </div>
+                    <div class="item-box3"><%= item.hotPrice %> </div>
+                  </div>  
+                <% } %> 
+              <% }) %>  
+            <% } else {%>
+              <div class="drink-item">
+                <div class="item-box-customer1"></div>
+                <div class="item-box-customer2">冰</div>
+                <div class="item-box-customer2">熱</div>
+              </div>
+              <% data.forEach((item)=>{ %>
+                <% if(item.categoryid === 1)  {%> 
+                  <div class="drink-item">
+                    <div class="item-box-customer1">
+                      <div><%= item.chineseName %> </div>
+                      <div class="englishName"><%= item.englishName %> </div>
+                    </div>
+                    <div class="item-box-customer2 ice-price"><%= item.icePrice %> </div>
+                    <div class="item-box-customer2"><%= item.hotPrice %> </div>
+                  </div>  
+                <% } %> 
+              <% }) %>  
+            <% } %>           
+
           </div>
         </div>
         <div class="card-box" id="tea">
           <h2 class="category-title">茶 tea</h2>
           <div class="drink-card">
-            <div class="drink-item">
-              <div></div>
-              <div class="drink-price">
-                <div>冰</div>
-                <div>熱</div>
+            <% if(user) { %>
+              <div class="drink-item">
+                <div class="item-box1"></div>
+                <div class="item-box2"></div>
+                <div class="item-box3">冰</div>
+                <div class="item-box3">熱</div>
               </div>
-            </div>
-            <% data.forEach((item)=>{ %>
-              <% if(item.categoryid === 2)  {%> 
-                <div class="drink-item">
-                  <div>
-                    <div><%= item.chineseName %> </div>
-                    <div><%= item.englishName %> </div>
-                  </div>
-                  <div class="drink-price">
-                    <div><%= item.icePrice %> </div>
-                    <div><%= item.hotPrice %> </div>
-                  </div>
-                </div>  
-              <% } %> 
-            <% }) %>          
+              <% data.forEach((item)=>{ %>
+                <% if(item.categoryid === 2)  {%> 
+                  <div class="drink-item">
+                      <div class="item-box1">
+                        <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                        <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                      </div>
+                    <div class="item-box2">
+                      <div><%= item.chineseName %> </div>
+                      <div class="englishName"><%= item.englishName %> </div>
+                    </div>
+                    <div class="item-box3 ice-price"><%= item.icePrice %> </div>
+                    <div class="item-box3"><%= item.hotPrice %> </div>
+                  </div>  
+                <% } %> 
+              <% }) %>  
+            <% } else {%>
+              <div class="drink-item">
+                <div class="item-box-customer1"></div>
+                <div class="item-box-customer2">冰</div>
+                <div class="item-box-customer2">熱</div>
+              </div>
+              <% data.forEach((item)=>{ %>
+                <% if(item.categoryid === 2)  {%> 
+                  <div class="drink-item">
+                    <div class="item-box-customer1">
+                      <div><%= item.chineseName %> </div>
+                      <div class="englishName"><%= item.englishName %> </div>
+                    </div>
+                    <div class="item-box-customer2 ice-price"><%= item.icePrice %> </div>
+                    <div class="item-box-customer2"><%= item.hotPrice %> </div>
+                  </div>  
+                <% } %> 
+              <% }) %>  
+            <% } %>           
           </div>
         </div>
         <div class="card-box" id="chocolate">
           <h2 class="category-title">巧克力 chocolate</h2>
           <div class="drink-card">
-            <div class="drink-item">
-              <div></div>
-              <div class="drink-price">
-                <div>冰</div>
-                <div>熱</div>
+            <% if(user) { %>
+              <div class="drink-item">
+                <div class="item-box1"></div>
+                <div class="item-box2"></div>
+                <div class="item-box3">冰</div>
+                <div class="item-box3">熱</div>
               </div>
-            </div>
-            <% data.forEach((item)=>{ %>
-              <% if(item.categoryid === 3){ %> 
-                <div class="drink-item">
-                  <div>
-                    <div><%= item.chineseName %> </div>
-                    <div><%= item.englishName %> </div>
-                  </div>
-                  <div class="drink-price">
-                    <div><%= item.icePrice %> </div>
-                    <div><%= item.hotPrice %> </div>
-                  </div>
-                </div>
-              <% } %> 
-            <% }) %> 
+              <% data.forEach((item)=>{ %>
+                <% if(item.categoryid === 3)  {%> 
+                  <div class="drink-item">
+                      <div class="item-box1">
+                        <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                        <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                      </div>
+                    <div class="item-box2">
+                      <div><%= item.chineseName %> </div>
+                      <div class="englishName"><%= item.englishName %> </div>
+                    </div>
+                    <div class="item-box3 ice-price"><%= item.icePrice %> </div>
+                    <div class="item-box3"><%= item.hotPrice %> </div>
+                  </div>  
+                <% } %> 
+              <% }) %>  
+            <% } else {%>
+              <div class="drink-item">
+                <div class="item-box-customer1"></div>
+                <div class="item-box-customer2">冰</div>
+                <div class="item-box-customer2">熱</div>
+              </div>
+              <% data.forEach((item)=>{ %>
+                <% if(item.categoryid === 3)  {%> 
+                  <div class="drink-item">
+                    <div class="item-box-customer1">
+                      <div><%= item.chineseName %> </div>
+                      <div class="englishName"><%= item.englishName %> </div>
+                    </div>
+                    <div class="item-box-customer2 ice-price"><%= item.icePrice %> </div>
+                    <div class="item-box-customer2"><%= item.hotPrice %> </div>
+                  </div>  
+                <% } %> 
+              <% }) %>  
+            <% } %>           
+
           </div>
         </div>
         <div class="card-box" id="juice">
           <h2 class="category-title">果汁 juice</h2>
           <div class="drink-card">
-            <div class="drink-item">
-              <div></div>
-              <div class="drink-price">
-                <div>冰</div>
-                <div>熱</div>
-              </div>
-            </div>
-            <% data.forEach((item)=>{ %>
-              <% if(item.categoryid === 4) {%> 
+            <% if(user) { %>
               <div class="drink-item">
-                <div>
-                  <div>美式黑咖啡</div>
-                  <div>Americano</div>
-                </div>
-                <div class="drink-price">
-                  <div>130</div>
-                  <div>130</div>
-                </div>
+                <div class="item-box1"></div>
+                <div class="item-box2"></div>
+                <div class="item-box3">冰</div>
+                <div class="item-box3">熱</div>
               </div>
-              <% } %> 
-            <% }) %> 
+              <% data.forEach((item)=>{ %>
+                <% if(item.categoryid === 4)  {%> 
+                  <div class="drink-item">
+                      <div class="item-box1">
+                        <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                        <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                      </div>
+                    <div class="item-box2">
+                      <div><%= item.chineseName %> </div>
+                      <div class="englishName"><%= item.englishName %> </div>
+                    </div>
+                    <div class="item-box3 ice-price"><%= item.icePrice %> </div>
+                    <div class="item-box3"><%= item.hotPrice %> </div>
+                  </div>  
+                <% } %> 
+              <% }) %>  
+            <% } else {%>
+              <div class="drink-item">
+                <div class="item-box-customer1"></div>
+                <div class="item-box-customer2">冰</div>
+                <div class="item-box-customer2">熱</div>
+              </div>
+              <% data.forEach((item)=>{ %>
+                <% if(item.categoryid === 4)  {%> 
+                  <div class="drink-item">
+                    <div class="item-box-customer1">
+                      <div><%= item.chineseName %> </div>
+                      <div class="englishName"><%= item.englishName %> </div>
+                    </div>
+                    <div class="item-box-customer2 ice-price"><%= item.icePrice %> </div>
+                    <div class="item-box-customer2"><%= item.hotPrice %> </div>
+                  </div>  
+                <% } %> 
+              <% }) %>  
+            <% } %>           
+
           </div>
         </div>
       </section>
@@ -163,8 +244,12 @@
           <div class="test-wrapper">
             <% data.forEach((item)=>{ %> <% if(item.categoryid === 5 ) {%>
               <div class="food-card-box">
-                <div class="food-card"></div>
+                <div class="food-card">
+                  <img src=<%= item.image %> >
+                </div>
                 <div class="food-card-info">
+                  <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                  <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
                   <span><%= item.chineseName%></span>
                   <span>$<%= item.icePrice%></span>
                 </div>
@@ -179,8 +264,12 @@
           <div class="test-wrapper">
             <% data.forEach((item)=>{ %> <% if(item.categoryid === 6 ) {%>
               <div class="food-card-box">
-                <div class="food-card"></div>
+                <div class="food-card">
+                  <img src="<%= item.image %>" >
+                </div>
                 <div class="food-card-info">
+                  <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                  <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
                   <span><%= item.chineseName%></span>
                   <span>$<%= item.icePrice%></span>
                 </div>
@@ -195,8 +284,15 @@
           <div class="test-wrapper">
             <% data.forEach((item)=>{ %> <% if(item.categoryid === 7 ) {%>
               <div class="food-card-box">
-                <div class="food-card"></div>
+                <div class="food-card">
+                  <img src=<%= item.image %> >
+                </div>
+                <div>
+
+                </div>
                 <div class="food-card-info">
+                  <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                  <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
                   <span><%= item.chineseName%></span>
                   <span>$<%= item.icePrice%></span>
                 </div>
@@ -206,7 +302,13 @@
         </div>
       </section>  
     </div>
-    <%- include("../template/footer") %>
-    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>  
+    <!-- <%- include("../template/footer") %> -->
+    <script>
+      document.querySelector(".image-input").addEventListener("change", ()=>{
+        const label = document.querySelector(".label-image-input");
+        label.classList.add("cl-finish");
+        label.textContent = "已上傳";
+      })
+    </script>  
   </body>
 </html>

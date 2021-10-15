@@ -1,11 +1,33 @@
 .footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
-  height: 400px;
+  height: 200px;
   background-color: #fff4ec;
   border-radius: 10px;
+  padding: 0 20px;
+}
+
+.footer-logo {
+  border-radius: 50%;
+  width: 70px;
+}
+
+.footer-info-box {
+  display: flex;
+  align-items: center;
+  color: rgb(112, 112, 112);
+  margin-bottom: 30px;
+}
+
+.footer-icon-box {
+  display: flex;
+  justify-content: right;
 }
 
 .ig-icon {
   width: 24px;
   height: auto;
+  margin: 0 10px;
 }
