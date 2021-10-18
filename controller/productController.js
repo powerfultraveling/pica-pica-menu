@@ -33,15 +33,22 @@ const productController = {
 },
 
   productAddHandler: (req, res) =>{
+    console.log(req.file)
     const chineseName = req.body.chineseName;
     const englishName = req.body.englishName;
     const icePrice = req.body.icePrice;
     const hotPrice = req.body.hotPrice;
     const description = req.body.description;
     const category= req.body.category;
-    let image = "";
+    let image;
 
-    if(req.file === true){
+    if(!chineseName || !englishName || !icePrice || !category){
+      req.flash("errorMessage", "something not filled !");
+      res.redirect("/");
+      return 
+    }
+
+    if(req.file ){
       image = req.file.path;
     }
 
@@ -112,11 +119,15 @@ const productController = {
     const hotPrice = req.body.hotPrice;
     const description = req.body.description;
     const category= req.body.category;
-    let image = "";
+    let image;
 
-    if(req.file === true){
-      image = req.file.path;
+    if(req.file){
+      let path = req.file.path;
+      let newStr = path.replace(/\\/g,"/")
+      let arr = newStr.split("public")
+      image = arr[1];
     }else{
+      console.log("i already have file!")
       image = req.body.oldImage;
     }
 

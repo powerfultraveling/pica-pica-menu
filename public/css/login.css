@@ -3,13 +3,33 @@
   margin: 0;
 }
 
+.flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-box {
   width: 300px;
-  margin: 0 auto;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  margin-top: 50%;
   text-align: center;
+  margin-top: 100px;
+}
+
+.icon-box {
+  padding: 20px;
+}
+
+.back-superlink {
+  display: flex;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+
+.back-icon {
+  width: 24px;
 }
 
 .logo-pic {
@@ -42,6 +62,7 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .login-btn:hover {

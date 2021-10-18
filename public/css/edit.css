@@ -3,14 +3,6 @@
   margin: 0;
 }
 
-.test-wrapper {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  height: 350px;
-  width: 300px;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -79,12 +71,6 @@
   margin-top: 20px;
 }
 
-@media all and (max-width: 242px) {
-  .drink-card {
-    width: 250px;
-  }
-}
-
 .card-box {
   display: flex;
   flex-direction: column;
@@ -104,29 +90,9 @@
   width: 30%;
 } */
 
-.drink-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-  align-items: center;
-}
-
-.drink-price {
-  display: flex;
-}
-
-.drink-price div {
-  margin-left: 10px;
-}
-
 .food-box {
   margin-top: 20px;
   text-align: center;
-}
-
-.food-title {
-  margin-bottom: 20px;
-  font-size: 24px;
 }
 
 .food-card-box {
@@ -141,11 +107,6 @@
   margin-top: 20px;
   background-color: rgb(201, 201, 48);
   background-size: 250px;
-}
-
-.food-card-info {
-  font-size: 18px;
-  margin-top: 10px;
 }
 
 .look-custom {
@@ -218,6 +179,12 @@
   }
   to {
     transform: translateY(-95%);
+  }
+}
+
+@media all and (max-width: 242px) {
+  .add-form-box {
+    height: 500px;
   }
 }
 

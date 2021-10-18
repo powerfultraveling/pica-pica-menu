@@ -8,21 +8,29 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="login-box">
-        <div>
-            <img class="logo-pic" src="/img/pica.png">
+    <div class="icon-box">
+        <a href="/" class="back-superlink"><img src="./img/back.png" class="back-icon"><span>Back</span></a>
+    </div>
+    <div class="flex-box">
+        <div class="login-box">
+            <div>
+                <img class="logo-pic" src="/img/pica.png">
+            </div>
+            <form action="/login" method="POST">
+                <div>
+                    <input type="text" class="text-input" placeholder="帳號" name="username">
+                </div>
+                <div>
+                    <input type="password" class="text-input" placeholder="密碼" name="password">
+                </div>
+                <% if(errorMessage) {%> 
+                    <span style="color: red; font-size: 10px;"><%= errorMessage  %> </span>
+                <% } %> 
+                <div>
+                    <input type="submit" class="login-btn" value="登入">
+                </div>
+            </form> 
         </div>
-        <form action="/login" method="POST">
-            <div>
-                <input type="text" class="text-input" placeholder="帳號" name="username">
-            </div>
-            <div>
-                <input type="password" class="text-input" placeholder="密碼" name="password">
-            </div>
-            <div>
-                <input type="submit" class="login-btn" value="登入">
-            </div>
-        </form> 
     </div>
 </body>
 </html>

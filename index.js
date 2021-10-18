@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+const flash = require('connect-flash');
 const multer = require("multer");
 const path = require("path")
 const app = express();
@@ -29,9 +30,13 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
+app.use(flash())
 
 app.use((req, res, next)=>{
   res.locals.user = req.session.user;
+  res.locals.errorMessage = req.flash("errorMessage");
+  res.locals.userNameError = req.flash("userNameError");
+  res.locals.passWordError = req.flash("passWordError")
   next()
 })
 

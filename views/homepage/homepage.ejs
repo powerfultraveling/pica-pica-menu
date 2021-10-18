@@ -16,8 +16,8 @@
     <div class="container">
       <% if(user){ %>
         <div class="admin-icon-box">
-          <a class="logout" href="/logout"
-            >登出</a>
+          <a href="/logout"
+          ><img class="logout" src="/img/logout.png"></a>
         </div>
       <% } else {%>  
         <div class="admin-icon-box">
@@ -245,11 +245,13 @@
             <% data.forEach((item)=>{ %> <% if(item.categoryid === 5 ) {%>
               <div class="food-card-box">
                 <div class="food-card">
-                  <img src=<%= item.image %> >
+                  <img class="food-card-img" src=<%= item.image %> >
                 </div>
                 <div class="food-card-info">
-                  <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
-                  <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                  <% if(user) { %> 
+                    <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                    <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                  <% } %> 
                   <span><%= item.chineseName%></span>
                   <span>$<%= item.icePrice%></span>
                 </div>
@@ -265,11 +267,13 @@
             <% data.forEach((item)=>{ %> <% if(item.categoryid === 6 ) {%>
               <div class="food-card-box">
                 <div class="food-card">
-                  <img src="<%= item.image %>" >
+                  <img class="food-card-img" src="<%= item.image %>" >
                 </div>
                 <div class="food-card-info">
-                  <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
-                  <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                  <% if(user) {%> 
+                    <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                    <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                  <% } %> 
                   <span><%= item.chineseName%></span>
                   <span>$<%= item.icePrice%></span>
                 </div>
@@ -285,14 +289,13 @@
             <% data.forEach((item)=>{ %> <% if(item.categoryid === 7 ) {%>
               <div class="food-card-box">
                 <div class="food-card">
-                  <img src=<%= item.image %> >
-                </div>
-                <div>
-
+                  <img class="food-card-img" src=<%= item.image %> >
                 </div>
                 <div class="food-card-info">
-                  <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
-                  <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                  <% if(user) { %> 
+                    <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                    <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                  <% } %> 
                   <span><%= item.chineseName%></span>
                   <span>$<%= item.icePrice%></span>
                 </div>

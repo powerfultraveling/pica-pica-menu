@@ -43,6 +43,9 @@
         <div>
           <input class="submit-btn" type="submit" value="編輯完成"/>
         </div>
+        <% if(errorMessage) { %>
+          <h3><%= errorMessage %> </h3>
+        <% } %>  
       </form>   
     </div>
   </div>  
