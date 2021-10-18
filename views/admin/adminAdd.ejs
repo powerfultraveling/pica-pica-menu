@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+  <% if(user){ %> 
     <div class="add-modal">
         <div class="add-form-box">
           <div class="model-cancel-box">
@@ -62,6 +63,9 @@
           label.classList.add("cl-finish");
           label.textContent = "已上傳";
         })
-      </script>    
+      </script>  
+      <% } else {%>
+        <a href="/login">請按此登入</a>
+      <% } %>    
 </body>
 </html>

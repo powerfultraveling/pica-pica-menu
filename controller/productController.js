@@ -22,8 +22,6 @@ const productController = {
   },
 
   productAddHandler: (req, res) =>{
-    console.log("i am add handler")
-    console.log(req.file)
     const chineseName = req.body.chineseName;
     const englishName = req.body.englishName;
     const icePrice = req.body.icePrice;
@@ -32,9 +30,6 @@ const productController = {
     const category= req.body.category;
     let image;
 
-    if(chineseName === null){
-      console.log("nonoonononon")
-    }
     if(req.file ){
       image = req.file.path;
     }
@@ -110,7 +105,7 @@ const productController = {
     const category= req.body.category;
     let image;
 
-    if(!chineseName || !englishName || !icePrice ){
+    if(!chineseName || !englishName  ){
       req.flash("errroMessage", "請填寫必要欄位");
       res.redirect(`/edit/${id}`);
       return 

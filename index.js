@@ -5,10 +5,16 @@ const multer = require("multer");
 const bodyParser = require('body-parser')
 const path = require("path")
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
+//controller
 const productController = require("./controller/productController");
 const userController = require("./controller/userController");
+
+//body parser
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 
 //multer
 const uploadDesatination = path.join(__dirname, "./public/img/products")
@@ -33,30 +39,25 @@ app.use(session({
 }));
 app.use(flash())
 
-//
+//local variable
 app.use((req, res, next)=>{
   res.locals.user = req.session.user;
   res.locals.errorMessage = req.flash("errorMessage");
-  res.locals.userNameError = req.flash("userNameError");
-  res.locals.passWordError = req.flash("passWordError")
   next()
 })
 
-app.use(express.urlencoded({ extended: false }));
-
-
+//router
 app.get("/", productController.index);
 app.get("/login", userController.loginPage);
 app.post("/login", userController.loginHandler);
 app.get("/add", productController.productAdd);
-app.post("/add", productController.productAddHandler);
 app.get("/logout", userController.logoutHandler);
 app.get("/edit/:id", productController.productEdit);
 app.post("/edit/:id", upload.single('image'), productController.productEditHandler)
 app.get("/delete/:id", productController.productDeleteHandeler);
 app.post("/add", upload.single('image'), productController.productAddHandler);
 
-
+//listen to port 
 app.listen(port, () => {
   console.log(`listen on port ${port}`);
 });
