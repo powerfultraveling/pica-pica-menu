@@ -9,10 +9,6 @@
     <title>Document</title>
   </head>
   <body>
-    <% if(add_modal_open === true) { %> 
-      <%- include ("../template/add-modal.ejs")%> 
-    <% } %> 
-
     <div class="container">
       <% if(user){ %>
         <div class="admin-icon-box">
@@ -40,9 +36,7 @@
       </div>
       <% if(user) {%> 
         <div class="admin-add-box">
-          <form action="/" method="POST">
-            <button name="addModalBtn" class="add-btn" value="open">+</button>
-          </form>
+            <a name="addModalBtn" class="add-btn" href="/add">+</a>
         </div>
       <% }  %> 
       <section class="main-sec">
@@ -67,8 +61,8 @@
                       <div><%= item.chineseName %> </div>
                       <div class="englishName"><%= item.englishName %> </div>
                     </div>
-                    <div class="item-box3 ice-price"><%= item.icePrice %> </div>
-                    <div class="item-box3"><%= item.hotPrice %> </div>
+                    <div class="item-box3 price"><%= item.icePrice %> </div>
+                    <div class="item-box3 price"><%= item.hotPrice %> </div>
                   </div>  
                 <% } %> 
               <% }) %>  
@@ -85,8 +79,8 @@
                       <div><%= item.chineseName %> </div>
                       <div class="englishName"><%= item.englishName %> </div>
                     </div>
-                    <div class="item-box-customer2 ice-price"><%= item.icePrice %> </div>
-                    <div class="item-box-customer2"><%= item.hotPrice %> </div>
+                    <div class="item-box-customer2 price"><%= item.icePrice %> </div>
+                    <div class="item-box-customer2 price"><%= item.hotPrice %> </div>
                   </div>  
                 <% } %> 
               <% }) %>  
@@ -115,8 +109,8 @@
                       <div><%= item.chineseName %> </div>
                       <div class="englishName"><%= item.englishName %> </div>
                     </div>
-                    <div class="item-box3 ice-price"><%= item.icePrice %> </div>
-                    <div class="item-box3"><%= item.hotPrice %> </div>
+                    <div class="item-box3 price"><%= item.icePrice %> </div>
+                    <div class="item-box3 price"><%= item.hotPrice %> </div>
                   </div>  
                 <% } %> 
               <% }) %>  
@@ -133,8 +127,8 @@
                       <div><%= item.chineseName %> </div>
                       <div class="englishName"><%= item.englishName %> </div>
                     </div>
-                    <div class="item-box-customer2 ice-price"><%= item.icePrice %> </div>
-                    <div class="item-box-customer2"><%= item.hotPrice %> </div>
+                    <div class="item-box-customer2 price"><%= item.icePrice %> </div>
+                    <div class="item-box-customer2 price"><%= item.hotPrice %> </div>
                   </div>  
                 <% } %> 
               <% }) %>  
@@ -162,8 +156,8 @@
                       <div><%= item.chineseName %> </div>
                       <div class="englishName"><%= item.englishName %> </div>
                     </div>
-                    <div class="item-box3 ice-price"><%= item.icePrice %> </div>
-                    <div class="item-box3"><%= item.hotPrice %> </div>
+                    <div class="item-box3 price"><%= item.icePrice %> </div>
+                    <div class="item-box3 price"><%= item.hotPrice %> </div>
                   </div>  
                 <% } %> 
               <% }) %>  
@@ -180,8 +174,8 @@
                       <div><%= item.chineseName %> </div>
                       <div class="englishName"><%= item.englishName %> </div>
                     </div>
-                    <div class="item-box-customer2 ice-price"><%= item.icePrice %> </div>
-                    <div class="item-box-customer2"><%= item.hotPrice %> </div>
+                    <div class="item-box-customer2 price"><%= item.icePrice %> </div>
+                    <div class="item-box-customer2 price"><%= item.hotPrice %> </div>
                   </div>  
                 <% } %> 
               <% }) %>  
@@ -210,8 +204,8 @@
                       <div><%= item.chineseName %> </div>
                       <div class="englishName"><%= item.englishName %> </div>
                     </div>
-                    <div class="item-box3 ice-price"><%= item.icePrice %> </div>
-                    <div class="item-box3"><%= item.hotPrice %> </div>
+                    <div class="item-box3 price"><%= item.icePrice %> </div>
+                    <div class="item-box3 price"><%= item.hotPrice %> </div>
                   </div>  
                 <% } %> 
               <% }) %>  
@@ -228,8 +222,8 @@
                       <div><%= item.chineseName %> </div>
                       <div class="englishName"><%= item.englishName %> </div>
                     </div>
-                    <div class="item-box-customer2 ice-price"><%= item.icePrice %> </div>
-                    <div class="item-box-customer2"><%= item.hotPrice %> </div>
+                    <div class="item-box-customer2 price"><%= item.icePrice %> </div>
+                    <div class="item-box-customer2 price"><%= item.hotPrice %> </div>
                   </div>  
                 <% } %> 
               <% }) %>  
@@ -305,13 +299,5 @@
         </div>
       </section>  
     </div>
-    <!-- <%- include("../template/footer") %> -->
-    <script>
-      document.querySelector(".image-input").addEventListener("change", ()=>{
-        const label = document.querySelector(".label-image-input");
-        label.classList.add("cl-finish");
-        label.textContent = "已上傳";
-      })
-    </script>  
   </body>
 </html>

@@ -2,6 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const flash = require('connect-flash');
 const multer = require("multer");
+const bodyParser = require('body-parser')
 const path = require("path")
 const app = express();
 const port = 3000;
@@ -22,7 +23,7 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage: storage })
 
-
+//express session
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.use(session({
@@ -32,6 +33,7 @@ app.use(session({
 }));
 app.use(flash())
 
+//
 app.use((req, res, next)=>{
   res.locals.user = req.session.user;
   res.locals.errorMessage = req.flash("errorMessage");
@@ -42,10 +44,12 @@ app.use((req, res, next)=>{
 
 app.use(express.urlencoded({ extended: false }));
 
+
 app.get("/", productController.index);
-app.post("/", productController.addModal);
 app.get("/login", userController.loginPage);
 app.post("/login", userController.loginHandler);
+app.get("/add", productController.productAdd);
+app.post("/add", productController.productAddHandler);
 app.get("/logout", userController.logoutHandler);
 app.get("/edit/:id", productController.productEdit);
 app.post("/edit/:id", upload.single('image'), productController.productEditHandler)

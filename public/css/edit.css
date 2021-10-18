@@ -10,16 +10,6 @@
   padding: 10px;
 }
 
-.admin-icon-box {
-  width: 100%;
-  display: flex;
-  justify-content: left;
-}
-
-.admin-icon {
-  width: 16px;
-  height: auto;
-}
 .logo {
   width: 150px;
   height: auto;
@@ -78,18 +68,6 @@
   margin-top: 40px;
 }
 
-/* .item-box1 {
-  width: 20%;
-}
-
-.item-box2 {
-  width: 50%;
-}
-
-.item-box3 {
-  width: 30%;
-} */
-
 .food-box {
   margin-top: 20px;
   text-align: center;
@@ -120,26 +98,6 @@
 .icon {
   width: 16px;
   height: auto;
-}
-
-.admin-add-box {
-  display: flex;
-  justify-content: flex-end;
-  width: 300px;
-}
-
-.add-btn {
-  display: inline-block;
-  border-radius: 50%;
-  background-color: white;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  width: 32px;
-  height: 32px;
-  font-size: 20px;
-  text-align: center;
-  vertical-align: middle;
-  text-decoration: none;
-  color: black;
 }
 
 /* admin add modal*/
@@ -178,7 +136,7 @@
     transform: translateY(0);
   }
   to {
-    transform: translateY(-95%);
+    transform: translateY(-100%);
   }
 }
 

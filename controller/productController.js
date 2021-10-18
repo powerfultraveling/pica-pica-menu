@@ -17,22 +17,12 @@ const productController = {
       });
   },
 
-  addModal: (req, res)=>{
-    const add_modal_open = !!req.body.addModalBtn;
-    Product.findAll()
-    .then((data) => {
-      res.render("./homepage/homepage", {
-        data: data,
-        add_modal_open: add_modal_open
-      });
-    })
-    .catch((err) => {
-      console.log(err.toString());
-      return;
-    });
-},
+  productAdd: (req, res) =>{
+    res.render("./admin/adminAdd");
+  },
 
   productAddHandler: (req, res) =>{
+    console.log("i am add handler")
     console.log(req.file)
     const chineseName = req.body.chineseName;
     const englishName = req.body.englishName;
@@ -42,12 +32,9 @@ const productController = {
     const category= req.body.category;
     let image;
 
-    if(!chineseName || !englishName || !icePrice || !category){
-      req.flash("errorMessage", "something not filled !");
-      res.redirect("/");
-      return 
+    if(chineseName === null){
+      console.log("nonoonononon")
     }
-
     if(req.file ){
       image = req.file.path;
     }
@@ -65,7 +52,9 @@ const productController = {
       res.redirect("/")
     })
     .catch((err)=>{
-      console.log(err)
+      console.log(err);
+      req.flash("errorMessage", err.toString());
+      res.redirect("/add");
       return
     })
   },
@@ -120,6 +109,12 @@ const productController = {
     const description = req.body.description;
     const category= req.body.category;
     let image;
+
+    if(!chineseName || !englishName || !icePrice ){
+      req.flash("errroMessage", "請填寫必要欄位");
+      res.redirect(`/edit/${id}`);
+      return 
+    }
 
     if(req.file){
       let path = req.file.path;

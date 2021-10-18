@@ -1,0 +1,141 @@
+.add-modal {
+  position: fixed;
+  justify-content: center;
+  display: flex;
+  overflow: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.add-form-box {
+  position: absolute;
+  height: 580px;
+  top: 80%;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 300px;
+  text-align: center;
+  padding-top: 10px;
+  border-radius: 10px;
+  animation-name: modal;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  transition: 0.3s;
+}
+
+@keyframes modal {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-90%);
+  }
+}
+
+.model-cancel-box {
+  padding-left: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+
+.model-cancel-btn {
+  color: rgb(10, 122, 255);
+  text-decoration: none;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  margin: 30px auto;
+  padding: 30px;
+}
+
+.add-title {
+  margin-bottom: 30px;
+}
+
+.text-input {
+  height: 30px;
+  width: 250px;
+  border: rgb(224, 224, 224) 1px solid;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.label-image-input {
+  background-color: rgb(10, 122, 255);
+  color: white;
+  font-weight: 400;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.image-input {
+  display: none;
+}
+
+.text-input:focus {
+  outline: none;
+}
+
+.textarea-input {
+  width: 230px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.textarea-input:focus {
+  outline: none;
+}
+
+.select {
+  height: 30px;
+  width: 60px;
+  border: 1px solid rgb(167, 167, 167);
+  border-radius: 10px;
+  background-color: rgba(245, 244, 244, 0.6);
+}
+
+.select:focus {
+  outline: none;
+}
+
+.submit-btn {
+  width: 80px;
+  height: 30px;
+  margin-top: 20px;
+  padding: 4px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: black;
+  color: rgb(216, 215, 215);
+}
+
+.submit-btn:hover {
+  background-color: #fff;
+  color: black;
+}
+
+.cl-finish {
+  background-color: rgb(230, 230, 230);
+}
