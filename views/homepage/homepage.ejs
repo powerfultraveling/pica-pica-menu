@@ -22,8 +22,8 @@
           /></a>
         </div>
       <% } %> 
-      <div>
-        <a><img class="logo" src="./img/pica.png" /></a>
+      <div id="top">
+        <a ><img class="logo" src="./img/pica.png" /></a>
       </div>
       <div class="buttons">
         <a href="#coffee"><button class="food-btn">咖啡</button></a>
@@ -279,12 +279,28 @@
                   <img class="food-card-img" src="<%= item.image %>" >
                 </div>
                 <div class="food-card-info">
-                  <% if(user) {%> 
-                    <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
-                    <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
-                  <% } %> 
-                  <span><%= item.chineseName%></span>
-                  <span>$<%= item.icePrice%></span>
+                  <% if(user) { %> 
+                    <div class="item-box1">
+                      <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                      <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                    </div>
+                    <div class="item-box2">
+                      <div><%= item.chineseName%></div>
+                      <div class="englishName"><%= item.englishName %> </div>
+                    </div>
+                    <div class="item-box3">
+                      <span>$<%= item.icePrice%></span>
+                    </div> 
+                  <% } else { %>
+                    <div class="item-box-customer1">
+                      <div class="chineseName"><%= item.chineseName%></div>
+                      <div class="englishName"><%= item.englishName %> </div>
+                    </div>
+                    <div class="item-box-customer3">
+                      <span class="chineseName">$<%= item.icePrice%></span>
+                    </div> 
+                  <% } %>              
+
                 </div>
               </div>
             <% } %> <% })%>
@@ -302,11 +318,26 @@
                 </div>
                 <div class="food-card-info">
                   <% if(user) { %> 
-                    <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
-                    <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
-                  <% } %> 
-                  <span><%= item.chineseName%></span>
-                  <span>$<%= item.icePrice%></span>
+                    <div class="item-box1">
+                      <a href="/edit/<%= item.id %> "><img class="icon" src="./img/edit.png"></a>
+                      <a href="/delete/<%= item.id %> "><img class="icon" src="./img/delete.png"></a>
+                    </div>
+                    <div class="item-box2">
+                      <div><%= item.chineseName%></div>
+                      <div class="englishName"><%= item.englishName %> </div>
+                    </div>
+                    <div class="item-box3">
+                      <span>$<%= item.icePrice%></span>
+                    </div> 
+                  <% } else { %>
+                    <div class="item-box-customer1">
+                      <div class="chineseName"><%= item.chineseName%></div>
+                      <div class="englishName"><%= item.englishName %> </div>
+                    </div>
+                    <div class="item-box-customer3">
+                      <span class="chineseName">$<%= item.icePrice%></span>
+                    </div> 
+                  <% } %>              
                 </div>
               </div>
             <% } %> <% })%>
@@ -314,5 +345,8 @@
         </div>
       </section>  
     </div>
+    <footer class="footer">
+      <a class="footer-words" href="#top">要點一下我回到最上面嗎?</a>
+    </footer>
   </body>
 </html>

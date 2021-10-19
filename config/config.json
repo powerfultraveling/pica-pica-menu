@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
+    "username": "powerfultraveling",
+    "password": "1111",
     "database": "menu",
     "host": "127.0.0.1",
     "dialect": "mysql"

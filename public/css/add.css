@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+
 .add-modal {
   position: fixed;
   justify-content: center;
@@ -60,6 +62,7 @@
 
 .add-title {
   margin-bottom: 30px;
+  font-family: "Noto Sans TC", sans-serif;
 }
 
 .text-input {
