@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "powerfultraveling",
-    "password": "1111",
+    "username": "root",
+    "password": "root",
     "database": "menu",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -19,6 +19,6 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "config.use_env_variable": "CLEARDB_GREEN_URL"
+    "config.use_env_variable": "DATABASE_URL"
   }
 }
