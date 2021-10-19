@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "db:migrate": "sequelize db:migrate --env production",
-    "start": "npm run db:migrate && node index.js",
+    "heroku-postbuild": "sequelize db:migrate",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
