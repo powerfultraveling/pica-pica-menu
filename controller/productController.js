@@ -113,8 +113,8 @@ const productController = {
 
     if(req.file){
       let path = req.file.path;
-      let newStr = path.replace(/\\/g,"/")
-      let arr = newStr.split("public")
+      let newStr = path.replace(/\\/g,"/");
+      let arr = newStr.split("app/public");
       image = arr[1];
     }else{
       console.log("i already have file!")
