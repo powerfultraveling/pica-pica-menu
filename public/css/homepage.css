@@ -50,9 +50,12 @@ html {
   height: 100px;
   width: 300px;
   padding-bottom: 10px;
+  display: flex;
 }
 
 .food-btn {
+  display: inline-block;
+  margin-right: 5px;
   border: none;
   border-radius: 10px;
   background: rgb(248, 248, 230);
@@ -60,6 +63,14 @@ html {
   width: 80px;
   cursor: pointer;
   font-size: 20px;
+  text-align: center;
+  line-height: 80px;
+}
+
+.drink-info {
+  border: 1px solid rgb(189, 189, 189);
+  padding: 30px;
+  margin: 20px;
 }
 
 .main-sec {
@@ -164,11 +175,14 @@ html {
   margin-top: 20px;
   background-color: rgb(223, 223, 223);
   background-size: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .food-card-img {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: auto;
   border-radius: 10px;
 }
 
