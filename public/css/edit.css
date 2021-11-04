@@ -3,101 +3,9 @@
   margin: 0;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-}
-
-.logo {
-  width: 150px;
-  height: auto;
-}
-
-.buttons {
-  margin-top: 30px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  height: 100px;
-  width: 300px;
-}
-
-.drink-btn {
-  border: none;
-  border-radius: 10px;
-  background: rgb(248, 248, 230);
-  height: 80px;
-  width: 80px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.food-btn {
-  border: none;
-  border-radius: 10px;
-  background: rgb(255, 255, 219);
-  height: 80px;
-  width: 80px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.main-sec {
-  margin-bottom: 30px;
-}
-
-.category-title {
-  font-size: 24px;
-}
-
-.drink-card {
-  border-radius: 20px;
-  font-size: 20px;
-  height: 400px;
-  width: 300px;
-  background-color: rgb(228, 228, 228);
-  margin-top: 20px;
-}
-
-.card-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 40px;
-}
-
-.food-box {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.food-card-box {
-  display: inline-block;
-  text-align: center;
-}
-
-.food-card {
-  width: 250px;
-  height: 250px;
-  border-radius: 10px;
-  margin-top: 20px;
-  background-color: rgb(201, 201, 48);
-  background-size: 250px;
-}
-
-.look-custom {
-  width: 350px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* admin related */
-.icon {
-  width: 16px;
-  height: auto;
+.cl-red {
+  color: red;
+  display: inline;
 }
 
 /* admin add modal*/
@@ -175,7 +83,7 @@
 
 .text-input {
   height: 30px;
-  width: 250px;
+  width: 200px;
   border: rgb(224, 224, 224) 1px solid;
   border-radius: 10px;
   margin-bottom: 20px;

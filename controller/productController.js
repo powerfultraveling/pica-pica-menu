@@ -8,7 +8,7 @@ const productController = {
       .then((data) => {
         res.render("./homepage/homepage", {
           data: data,
-          add_modal_open: false
+          add_modal_open: false,
         });
       })
       .catch((err) => {
@@ -17,22 +17,28 @@ const productController = {
       });
   },
 
-  productAdd: (req, res) =>{
+  productAdd: (req, res) => {
     res.render("./admin/adminAdd");
   },
 
-  productAddHandler: (req, res) =>{
+  productAddHandler: (req, res) => {
     const chineseName = req.body.chineseName;
     const englishName = req.body.englishName;
     const icePrice = req.body.icePrice;
     const hotPrice = req.body.hotPrice;
     const description = req.body.description;
-    const category= req.body.category;
+    const category = req.body.category;
     let image;
-    
-    if(req.file){
+
+    if (!chineseName || !englishName || category.toString() === "0") {
+      req.flash("errorMessage", "請填寫必要欄位");
+      res.redirect(`/add`);
+      return;
+    }
+
+    if (req.file) {
       let path = req.file.path;
-      let newStr = path.replace(/\\/g,"/");
+      let newStr = path.replace(/\\/g, "/");
       let arr = newStr.split("/app/public");
       image = arr[1];
     }
@@ -44,108 +50,112 @@ const productController = {
       hotPrice: hotPrice,
       description: description,
       categoryid: category,
-      image: image
+      image: image,
     })
-    .then(()=>{
-      res.redirect("/")
-    })
-    .catch((err)=>{
-      console.log(err);
-      req.flash("errorMessage", err.toString());
-      res.redirect("/add");
-      return
-    })
-  },
-
-  adminManage: (req, res)=>{
-    Product.findAll()
-    .then((data)=>{
-      res.render("./admin/adminManage")
-    })
-  },
-
-  productDeleteHandeler: (req, res)=>{
-    const id = req.params.id;
-    Product.findOne({
-      where:{
-        id: id
-      }
-    })
-    .then((product)=>{
-      product.destroy()
-    })
-    .then(()=>{
-      console.log("successfully deleted!")
-      res.redirect("/");
-    })
-    .catch((err)=>{
-      console.log(err);
-      return
-    })
-  },
-
-  productEdit: (req, res)=>{
-    const id = req.params.id;
-    Product.findOne({
-      where:{
-        id: id
-      }
-    })
-    .then((product)=>{
-      res.render("./admin/adminEdit", {
-        product: product
+      .then(() => {
+        res.redirect("/");
       })
-    })
+      .catch((err) => {
+        console.log(err);
+        req.flash("errorMessage", err.toString());
+        res.redirect("/add");
+        return;
+      });
   },
 
-  productEditHandler: (req, res)=>{
+  adminManage: (req, res) => {
+    Product.findAll().then((data) => {
+      res.render("./admin/adminManage");
+    });
+  },
+
+  productDeleteHandeler: (req, res) => {
+    const id = req.params.id;
+    Product.findOne({
+      where: {
+        id: id,
+      },
+    })
+      .then((product) => {
+        product.destroy();
+      })
+      .then(() => {
+        console.log("successfully deleted!");
+        res.redirect("/");
+      })
+      .catch((err) => {
+        console.log(err);
+        return;
+      });
+  },
+
+  productEdit: (req, res) => {
+    const id = req.params.id;
+    Product.findOne({
+      where: {
+        id: id,
+      },
+    }).then((product) => {
+      res.render("./admin/adminEdit", {
+        product: product,
+      });
+    });
+  },
+
+  productEditHandler: (req, res) => {
     const id = req.params.id;
     const chineseName = req.body.chineseName;
     const englishName = req.body.englishName;
     const icePrice = req.body.icePrice;
     const hotPrice = req.body.hotPrice;
     const description = req.body.description;
-    const category= req.body.category;
+    const category = req.body.category;
     let image;
 
-    if(!chineseName || !englishName  ){
-      req.flash("errroMessage", "請填寫必要欄位");
+    
+    if (!chineseName || !englishName || category.toString() === "0") {
+      req.flash("errorMessage", "請填寫必要欄位");
       res.redirect(`/edit/${id}`);
-      return 
+      return;
     }
 
-    if(req.file){
+
+    if (req.file) {
       let path = req.file.path;
-      let newStr = path.replace(/\\/g,"/");
+      let newStr = path.replace(/\\/g, "/");
       let arr = newStr.split("/app/public");
       image = arr[1];
-    }else{
-      console.log("i already have file!")
+    } else {
+      console.log("i already have file!");
       image = req.body.oldImage;
     }
 
-    Product.update({
-      chineseName: chineseName,
-      englishName: englishName,
-      icePrice: icePrice,
-      hotPrice: hotPrice,
-      description: description,
-      categoryid: category,
-      image: image
-    },{
-      where:{
-        id: id
+    Product.update(
+      {
+        chineseName: chineseName,
+        englishName: englishName,
+        icePrice: icePrice,
+        hotPrice: hotPrice,
+        description: description,
+        categoryid: category,
+        image: image,
+      },
+      {
+        where: {
+          id: id,
+        },
       }
-    })
-    .then(()=>{
-      console.log("success!")
-      res.redirect("/");
-    })
-    .catch((err)=>{
-      console.log(err.toString())
-      res.redirect("/");
-    })
-  }
+    )
+      .then(() => {
+        console.log("success!");
+        req.flash("successMessage", "成功");
+        res.redirect("/");
+      })
+      .catch((err) => {
+        console.log(err.toString());
+        res.redirect("/");
+      });
+  },
 };
 
 module.exports = productController;
