@@ -135,7 +135,9 @@ html {
 }
 
 .chineseName {
-  font-size: 20px;
+  font-size: 16px;
+  color: green;
+  white-space: normal;
 }
 
 .englishName {

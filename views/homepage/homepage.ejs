@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/homepage.css" />
-    <link rel="stylesheet" href="./css/component.css" />
     <title>喜鵲's 菜單</title>
   </head>
   <body>
@@ -242,7 +241,7 @@
                   /></a>
                 </div>
                 <div class="item-box2">
-                  <div><%= item.chineseName%></div>
+                  <div class="chineseName"<%= item.chineseName%></div>
                   <div class="englishName"><%= item.englishName %></div>
                 </div>
                 <div class="item-box3">
@@ -283,7 +282,7 @@
                   /></a>
                 </div>
                 <div class="item-box2">
-                  <div><%= item.chineseName%></div>
+                  <div class="chineseName"><%= item.chineseName%></div>
                   <div class="englishName"><%= item.englishName %></div>
                 </div>
                 <div class="item-box3">
@@ -324,7 +323,7 @@
                   /></a>
                 </div>
                 <div class="item-box2">
-                  <div><%= item.chineseName%></div>
+                  <div class="chineseName"><%= item.chineseName%></div>
                   <div class="englishName"><%= item.englishName %></div>
                 </div>
                 <div class="item-box3">
@@ -336,7 +335,7 @@
                   <div class="englishName"><%= item.englishName %></div>
                 </div>
                 <div class="item-box-customer3">
-                  <span class="chineseName">$<%= item.icePrice%></span>
+                  <span>$<%= item.icePrice%></span>
                 </div>
                 <% } %>
               </div>
