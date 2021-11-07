@@ -70,7 +70,7 @@ html {
 .drink-info {
   border: 1px solid rgb(189, 189, 189);
   padding: 30px;
-  margin: 20px;
+  margin-top: 30px;
 }
 
 .main-sec {
@@ -85,7 +85,7 @@ html {
 .drink-card {
   border-radius: 20px;
   font-size: 20px;
-  min-height: 400px;
+  min-height: 300px;
   width: 350px;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
